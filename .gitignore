@@ -1,0 +1,33 @@
+# Node
+node_modules/
+
+# Build output
+dist/
+build/
+.cache/
+
+# Environment variables
+.env
+.env.*
+
+# Vercel/Next
+.vercel/
+.next/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# macOS
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+
+# Coverage
+coverage/
+
+# Local config
+*.local
