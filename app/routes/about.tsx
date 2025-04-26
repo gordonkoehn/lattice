@@ -5,6 +5,10 @@ export default function About() {
     <main style={{ padding: '2rem', maxWidth: 700, margin: '0 auto' }}>
       <h1>About / Team</h1>
       <section style={{ margin: '2rem 0' }}>
+        <h2>Origins</h2>
+        The Lattice project was born out of a desire to create a 
+        decentralized coordination and data layer for the robotic age 
+        on easter Monday 2025.
         <h2>Founders</h2>
         <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
           <div style={{ flex: 1, textAlign: 'center' }}>
