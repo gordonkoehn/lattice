@@ -14,8 +14,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
         <Meta />
         <Links />
+        <style>{`body { font-family: 'Inter', sans-serif; }`}</style>
       </head>
       <body>
         {children}
@@ -33,8 +37,12 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
         <Meta />
         <Links />
+        <style>{`body { font-family: 'Inter', sans-serif; }`}</style>
       </head>
       <body>
         <nav
@@ -89,7 +97,7 @@ export default function App() {
             Mission
           </Link>
           <a
-            href="/docs/"
+            href="/architecture/"
             style={{
               color: "#444",
               textDecoration: "none",
@@ -98,7 +106,7 @@ export default function App() {
               transition: "background 0.2s",
             }}
           >
-            Docs
+            Architecture
           </a>
         </nav>
         <div style={{ minHeight: "80vh" }}>
