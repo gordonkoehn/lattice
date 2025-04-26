@@ -1,8 +1,8 @@
 # Lattice 
 
 ## Project overview
-[Pitch deck]([url](https://www.canva.com/design/DAGlwYjRlrQ/esZLnFX057ZmwlHf8e0NxA/edit?utm_content=DAGlwYjRlrQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton))
-[Notion page]([url](https://www.notion.so/A16Z-Speedrun-1dcb58daea66800083bcef09aec3b6bb?pvs=4))
+[Pitch deck](https://www.canva.com/design/DAGlwYjRlrQ/esZLnFX057ZmwlHf8e0NxA/edit?utm_content=DAGlwYjRlrQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+[Notion page](https://www.notion.so/A16Z-Speedrun-1dcb58daea66800083bcef09aec3b6bb?pvs=4)
 
 
 This directory is a brief example of a [Remix](https://remix.run/docs) site that can be deployed to Vercel with zero configuration.
