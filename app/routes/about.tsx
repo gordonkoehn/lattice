@@ -13,7 +13,7 @@ export default function About() {
             <p>Co-Founder & Web3 Lead</p>
           </div>
           <div style={{ flex: 1, textAlign: 'center' }}>
-            <img src="/jonas-profile_pic.jpeg" alt="Jonas" style={{ width: 160, height: 160, objectFit: 'cover', borderRadius: '50%', boxShadow: '0 2px 16px #0002' }} />
+            <img src="/jonas-profile_pic.jpeg" alt="Jonas E. Petersen" style={{ width: 160, height: 160, objectFit: 'cover', borderRadius: '50%', boxShadow: '0 2px 16px #0002' }} />
             <h3 style={{ marginTop: '1rem' }}>Jonas</h3>
             <p>Co-Founder & Robotics Lead</p>
           </div>
