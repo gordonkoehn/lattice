@@ -73,12 +73,11 @@ export default function App() {
               borderRadius: 6,
               transition: "background 0.2s",
             }}
-            activeStyle={{ background: "#f0f0f0" }}
           >
             About
           </Link>
           <Link
-            to="/tech"
+            to="/mission"
             style={{
               color: "#444",
               textDecoration: "none",
@@ -86,10 +85,21 @@ export default function App() {
               borderRadius: 6,
               transition: "background 0.2s",
             }}
-            activeStyle={{ background: "#f0f0f0" }}
           >
-            Tech
+            Mission
           </Link>
+          <a
+            href="/docs/"
+            style={{
+              color: "#444",
+              textDecoration: "none",
+              padding: "0.25rem 0.5rem",
+              borderRadius: 6,
+              transition: "background 0.2s",
+            }}
+          >
+            Docs
+          </a>
         </nav>
         <div style={{ minHeight: "80vh" }}>
           <Outlet />
