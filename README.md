@@ -1,4 +1,5 @@
-# Remix
+# Lattice Website
+## Using Remix
 
 This directory is a brief example of a [Remix](https://remix.run/docs) site that can be deployed to Vercel with zero configuration.
 
@@ -36,3 +37,23 @@ npm run dev
 ```
 
 Open up [http://localhost:5173](http://localhost:5173) and you should be ready to go!
+
+## Updating the Documentation (Material for MkDocs)
+
+1. Edit your documentation source files in `docs/docs/` (Markdown files).
+2. Build the static site:
+   ```sh
+   cd docs
+   mkdocs build
+   ```
+3. Copy the built site to the Remix public folder:
+   ```sh
+   rm -rf ../public/docs && cp -r site ../public/docs
+   ```
+4. Commit and push your changes.
+
+Your documentation will be available at `/docs` on your deployed site.
+
+## Vercel Deployment Notes
+- Vercel will automatically serve static files from the `public/` directory.
+- No extra configuration is needed if you follow the above steps.
