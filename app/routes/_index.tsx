@@ -3,8 +3,8 @@ import React, { useRef, useEffect } from "react";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Lattice" },
+    { name: "description", content: "Coordination & Data Layer of the Robotics Age" },
   ];
 };
 
@@ -18,16 +18,6 @@ const sections = [
     title: "Imagine Fiverr but for Robots",
     video: "/The_scene_depicts_a_humanoid_robot_walking_through_9701774e-357b-4976-8d4a-d6c74e369a76.webm",
     desc: "Across Producers. Monetize your Robots, Let Market Forces win."
-  },
-  {
-    title: "Peer to Peer Payments and Verification of Task Completion",
-    video: "/An_astronautical_laboratory_in_outer_space,_featur_9bff623b-375e-49b7-98a4-c09a642e6328.mp4",
-    desc: "Secure, decentralized, and automated."
-  },
-  {
-    title: "Placeholder for Flashy Animation",
-    video: "/A_whimsical_scene_of_a_green_frog_puppet_sipping_t_cc49a246-9eeb-4ea4-a164-939a6f94aea7.mp4",
-    desc: "Dynamic content coming soon."
   }
 ];
 
