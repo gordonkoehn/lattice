@@ -12,7 +12,7 @@ export default function About() {
         <h2>Founders</h2>
         <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
           <div style={{ flex: 1, textAlign: 'center' }}>
-            <img src="/gordon_profile_pic.webp" alt="Gordon Koehn" style={{ width: 160, height: 160, objectFit: 'cover', borderRadius: '50%', boxShadow: '0 2px 16px #0002' }} />
+            <img src="/gordon_profile_pic.webp" alt="Gordon J. Koehn" style={{ width: 160, height: 160, objectFit: 'cover', borderRadius: '50%', boxShadow: '0 2px 16px #0002' }} />
             <h3 style={{ marginTop: '1rem' }}>Gordon Koehn</h3>
             <p>Co-Founder & Web3 Lead</p>
           </div>
