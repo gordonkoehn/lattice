@@ -88,7 +88,12 @@ const LatticeBackground: React.FC = () => {
     };
   }, [isMounted]); // Add isMounted to dependency array
 
-  // Render the div container immediately, but the three.js canvas will be added only after mount
+  // Return null if not mounted (i.e., on the server or before client-side mount)
+  if (!isMounted) {
+    return null;
+  }
+
+  // Render the div container only when mounted on the client
   return <div ref={mountRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, overflow: 'hidden' }} />;
 };
 
