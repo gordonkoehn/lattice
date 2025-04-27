@@ -59,7 +59,7 @@ function InfoTile({ title, subtitle, imagePath, linkTo }: { title: string; subti
 
 export default function Index() {
   return (
-    <main style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8", padding: "0 1rem", position: 'relative', overflow: 'hidden' }}>
+    <main style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8", position: 'relative', overflowX: 'hidden', overflowY: 'auto' }}> {/* Ensure vertical scroll */}
       <LatticeBackground />
       <div style={{ position: 'relative', zIndex: 1 }}>
         {/* Combined Header Section */}
@@ -139,6 +139,74 @@ export default function Index() {
             linkTo="/consume"
           />
         </section>
+
+        {/* How It Works Section */}
+        <section style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.9)', // Slightly transparent white background
+          padding: '4rem 2rem',
+          margin: '4rem 0',
+          textAlign: 'center',
+        }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#333' }}>How Lattice Works</h2>
+          <p style={{ maxWidth: '700px', margin: '0 auto 1.5rem auto', fontSize: '1.1rem', color: '#555' }}>
+            Lattice connects robots, data curators, and AI developers in a seamless ecosystem. Robots contribute valuable real-world data, curators enhance it, and developers leverage it to build smarter AI.
+          </p>
+          {/* Placeholder for a diagram or more detailed steps */}
+          <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', marginTop: '2rem' }}>
+            <div style={{ flex: 1, minWidth: '200px', margin: '1rem' }}>
+              <img src="/robotic_contributer.png" alt="Contribute" style={{ width: '80px', height: 'auto', marginBottom: '0.5rem' }} />
+              <h4 style={{ color: '#333' }}>Contribute</h4>
+              <p style={{ fontSize: '0.9rem', color: '#666' }}>Robots share experiences.</p>
+            </div>
+            <div style={{ flex: 1, minWidth: '200px', margin: '1rem' }}>
+              <img src="/robotic_curator.png" alt="Curate" style={{ width: '80px', height: 'auto', marginBottom: '0.5rem' }} />
+              <h4 style={{ color: '#333' }}>Curate</h4>
+              <p style={{ fontSize: '0.9rem', color: '#666' }}>Humans enhance data.</p>
+            </div>
+            <div style={{ flex: 1, minWidth: '200px', margin: '1rem' }}>
+              <img src="/robotic_consumers.png" alt="Consume" style={{ width: '80px', height: 'auto', marginBottom: '0.5rem' }} />
+              <h4 style={{ color: '#333' }}>Consume</h4>
+              <p style={{ fontSize: '0.9rem', color: '#666' }}>AI learns faster.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Our Technology Section */}
+        <section style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.9)', // Slightly transparent white background
+          padding: '4rem 2rem',
+          margin: '4rem 0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+        }}>
+          <div style={{ flex: 1, minWidth: '300px', paddingRight: '2rem', textAlign: 'left' }}>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#333' }}>Powered by Cutting-Edge Tech</h2>
+            <p style={{ marginBottom: '1.5rem', fontSize: '1.1rem', color: '#555' }}>
+              We leverage decentralized technologies like Sui blockchain and Walrus storage to ensure secure, transparent, and efficient data exchange and coordination.
+            </p>
+            <Link to="/architecture" style={{ color: '#007bff', textDecoration: 'none', fontWeight: 'bold' }}>Learn about our Architecture →</Link>
+          </div>
+          <div style={{ flex: 1, minWidth: '300px', textAlign: 'center' }}>
+            {/* Placeholder for a technology graphic */}
+            <img src="/Silicon.png" alt="Technology Stack" style={{ maxWidth: '300px', width: '100%', height: 'auto', borderRadius: '8px' }} />
+          </div>
+        </section>
+
+        {/* Placeholder Footer Section (Optional) */}
+        <footer style={{
+          backgroundColor: 'rgba(240, 240, 240, 0.8)',
+          padding: '2rem 1rem',
+          marginTop: '4rem',
+          textAlign: 'center',
+          fontSize: '0.9rem',
+          color: '#666'
+        }}>
+          © {new Date().getFullYear()} Lattice. All rights reserved.
+          {/* Add more footer links if needed */}
+        </footer>
+
       </div>
     </main>
   );
