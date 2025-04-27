@@ -1,26 +1,16 @@
 import React, { useRef, useEffect, useState } from 'react';
-
-type ThreeModule = typeof import('three');
+import * as THREE from 'three';
 
 const LatticeBackground: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
   const [isMounted, setIsMounted] = useState(false);
-  const [THREE, setTHREE] = useState<ThreeModule | null>(null);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
   useEffect(() => {
-    if (isMounted) {
-      import('three').then(module => {
-        setTHREE(module);
-      });
-    }
-  }, [isMounted]);
-
-  useEffect(() => {
-    if (!isMounted || !mountRef.current || !THREE) return;
+    if (!isMounted || !mountRef.current) return;
 
     const currentMount = mountRef.current;
 
@@ -85,7 +75,7 @@ const LatticeBackground: React.FC = () => {
       pointsMaterial.dispose();
       renderer.dispose();
     };
-  }, [isMounted, THREE]);
+  }, [isMounted]);
 
   return <div ref={mountRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, overflow: 'hidden' }} />;
 };
