@@ -20,8 +20,10 @@ const LatticeBackground: React.FC = () => {
     // Create lattice points
     const pointsMaterial = new THREE.PointsMaterial({
       color: 0xffa500, // Orange color
-      size: 0.1,
+      size: 0.08, // Slightly smaller points
       sizeAttenuation: true,
+      opacity: 0.6, // Make points more transparent
+      transparent: true, // Enable transparency
     });
 
     const pointsGeometry = new THREE.BufferGeometry();
@@ -47,8 +49,8 @@ const LatticeBackground: React.FC = () => {
     let animationFrameId: number;
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      points.rotation.x += 0.001;
-      points.rotation.y += 0.002;
+      points.rotation.x += 0.0004; // Slower rotation on x-axis
+      points.rotation.y += 0.0008; // Slower rotation on y-axis
       renderer.render(scene, camera);
     };
     animate();

@@ -50,22 +50,65 @@ function InfoTile({ title, subtitle, imagePath }: { title: string; subtitle: str
 
 export default function Index() {
   return (
-    <main style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8", padding: "0 1rem", position: 'relative', overflow: 'hidden' }}> {/* Removed background color */}
-      <LatticeBackground /> {/* Add the background component */}
-      <div style={{ position: 'relative', zIndex: 1 }}> {/* Added wrapper div for content */} 
-        <header style={{ textAlign: "center", padding: "3rem 1rem 1rem 1rem" }}>
-          <h1 style={{ fontSize: "2.5rem", fontWeight: 800, letterSpacing: "-1px" }}>Lattice</h1>
+    <main style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8", padding: "0 1rem", position: 'relative', overflow: 'hidden' }}>
+      <LatticeBackground />
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        {/* Combined Header Section */}
+        <header style={{
+          textAlign: "center",
+          padding: "4rem 1rem 3rem 1rem",
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}>
+          {/* Logo */}
+          <img 
+            src="/lattic.png" 
+            alt="Lattice Logo" 
+            style={{
+              width: '100px', // Adjust size as needed
+              height: 'auto',
+              marginBottom: '1rem', // Space below logo
+            }}
+          />
+
+          {/* Removed Orange Box */}
+          <h1 style={{
+            fontSize: "3.5rem", // Slightly larger
+            fontWeight: 700,
+            letterSpacing: "-0.5px",
+            color: '#000000', // Black color
+            margin: '0 0 1.5rem 0', // Adjusted margin
+          }}>Lattice</h1>
+
+          {/* Subtitle H2 */}
+          <h2 style={{
+            fontSize: "1.9rem", // Larger size
+            fontWeight: 500,
+            color: '#222',
+            margin: '0 0 1rem 0', // Adjusted margin bottom
+            maxWidth: '750px',
+            lineHeight: 1.4,
+          }}>The coordination and data layer for the robotic age</h2>
+
+          {/* Tagline H3 */}
+          <h3 style={{
+            fontSize: "1.3rem", // Larger size
+            fontWeight: 400,
+            color: '#444',
+            margin: 0,
+            maxWidth: '650px',
+            lineHeight: 1.5,
+          }}>We build the infrastructure of the robotic sharing economy.</h3>
         </header>
-        <section style={{ textAlign: 'center', margin: '4rem 0', padding: '0 1rem' }}>
-          <h2 style={{ fontSize: "2rem", marginBottom: "1rem" }}>Lattice - the coordination and data layer for the robotic age</h2>
-          <p style={{ marginTop: "1.5rem", fontSize: "1.2rem", color: "#444" }}>We build the infrastructure of the robotic sharing economy.</p>
-        </section>
+
+        {/* InfoTile Section */}
         <section style={{
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'center',
           maxWidth: '1000px',
-          margin: '4rem auto',
+          margin: '2rem auto 4rem auto', // Adjusted top margin
           padding: '0 1rem',
         }}>
           <InfoTile
@@ -84,7 +127,7 @@ export default function Index() {
             imagePath="/robotic_consumers.png"
           />
         </section>
-      </div> {/* Close wrapper div */}
+      </div>
     </main>
   );
 }
