@@ -1,11 +1,18 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react'; // Import useState
 import * as THREE from 'three';
 
 const LatticeBackground: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
+  const [isMounted, setIsMounted] = useState(false); // Add mounted state
 
   useEffect(() => {
-    if (!mountRef.current) return;
+    // Set mounted to true only on the client-side after initial render
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    // Run Three.js logic only if mounted and the ref is available
+    if (!isMounted || !mountRef.current) return;
 
     const currentMount = mountRef.current;
 
@@ -79,8 +86,9 @@ const LatticeBackground: React.FC = () => {
       pointsMaterial.dispose();
       renderer.dispose();
     };
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, [isMounted]); // Add isMounted to dependency array
 
+  // Render the div container immediately, but the three.js canvas will be added only after mount
   return <div ref={mountRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, overflow: 'hidden' }} />;
 };
 
