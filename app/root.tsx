@@ -7,37 +7,11 @@ import {
   Outlet,
 } from "@remix-run/react";
 import { Analytics } from "@vercel/analytics/react";
+import type { MetaFunction } from "@vercel/remix";
 
-export function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-        {/* Favicons for different platforms */}
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
-        <link rel="manifest" href="/favicon_io/site.webmanifest" />
-        <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/favicon_io/android-chrome-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/favicon_io/android-chrome-512x512.png" />
-        <Meta />
-        <Links />
-        <style>{`body { font-family: 'Inter', sans-serif; }`}</style>
-      </head>
-      <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-        <Analytics />
-      </body>
-    </html>
-  );
-}
+export const meta: MetaFunction = () => [
+  { title: "Lattice" }
+];
 
 export default function App() {
   return (
@@ -58,7 +32,7 @@ export default function App() {
         <link rel="icon" type="image/png" sizes="512x512" href="/favicon_io/android-chrome-512x512.png" />
         <Meta />
         <Links />
-        <style>{`body { font-family: 'Inter', sans-serif; }`}</style>
+        <style>{`body { font-family: 'Inter', sans-serif; margin: 0; background: #fff; } html { scroll-behavior: smooth; }`}</style>
       </head>
       <body>
         <nav
@@ -116,8 +90,8 @@ export default function App() {
           >
             Mission
           </Link>
-          <a
-            href="/architecture/"
+          <Link 
+            to="/architecture"
             style={{
               color: "#444",
               textDecoration: "none",
@@ -127,9 +101,9 @@ export default function App() {
             }}
           >
             Architecture
-          </a>
+          </Link>
         </nav>
-        <div style={{ minHeight: "80vh" }}>
+        <div style={{ minHeight: "calc(100vh - 80px)" }}>
           <Outlet />
         </div>
         <ScrollRestoration />
