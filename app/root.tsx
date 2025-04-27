@@ -8,12 +8,15 @@ import {
 } from "@remix-run/react";
 import { Analytics } from "@vercel/analytics/react";
 import type { MetaFunction } from "@vercel/remix";
+import React, { useState } from 'react';
 
 export const meta: MetaFunction = () => [
   { title: "Lattice" }
 ];
 
 export default function App() {
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
+
   return (
     <html lang="en">
       <head>
@@ -67,7 +70,7 @@ export default function App() {
           </Link>
           <div style={{ flex: 1 }} />
           <Link
-            to="/about"
+            to="/contribute"
             style={{
               color: "#444",
               textDecoration: "none",
@@ -76,10 +79,10 @@ export default function App() {
               transition: "background 0.2s",
             }}
           >
-            About
+            Contribute
           </Link>
           <Link
-            to="/mission"
+            to="/curate"
             style={{
               color: "#444",
               textDecoration: "none",
@@ -88,10 +91,10 @@ export default function App() {
               transition: "background 0.2s",
             }}
           >
-            Mission
+            Curate
           </Link>
-          <Link 
-            to="/architecture"
+          <Link
+            to="/consume"
             style={{
               color: "#444",
               textDecoration: "none",
@@ -100,8 +103,71 @@ export default function App() {
               transition: "background 0.2s",
             }}
           >
-            Architecture
+            Consume
           </Link>
+          <div style={{ position: 'relative' }}>
+            <button
+              onClick={() => setIsAboutOpen(!isAboutOpen)}
+              onBlur={() => setTimeout(() => setIsAboutOpen(false), 150)}
+              style={{
+                color: "#444",
+                background: 'none',
+                border: 'none',
+                padding: "0.25rem 0.5rem",
+                borderRadius: 6,
+                cursor: 'pointer',
+                fontWeight: 600,
+                fontFamily: 'inherit',
+                fontSize: 'inherit',
+              }}
+            >
+              About ▾
+            </button>
+            {isAboutOpen && (
+              <div style={{
+                position: 'absolute',
+                top: '100%',
+                right: 0,
+                background: 'white',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                borderRadius: 6,
+                padding: '0.5rem',
+                marginTop: '0.5rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.5rem',
+                minWidth: '120px',
+                zIndex: 1001,
+              }}>
+                <Link
+                  to="/mission"
+                  style={{
+                    color: "#444",
+                    textDecoration: "none",
+                    padding: "0.25rem 0.5rem",
+                    borderRadius: 4,
+                    display: 'block',
+                  }}
+                  onClick={() => setIsAboutOpen(false)}
+                >
+                  Mission
+                </Link>
+                <Link
+                  to="/architecture"
+                  style={{
+                    color: "#444",
+                    textDecoration: "none",
+                    padding: "0.25rem 0.5rem",
+                    borderRadius: 4,
+                    display: 'block',
+                  }}
+                  onClick={() => setIsAboutOpen(false)}
+                >
+                  Architecture
+                </Link>
+              </div>
+            )}
+          </div>
         </nav>
         <div style={{ minHeight: "calc(100vh - 80px)" }}>
           <Outlet />

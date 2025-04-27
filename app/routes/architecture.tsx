@@ -24,6 +24,7 @@ export default function Architecture() {
           <li><strong>Sui Features:</strong>
             <ul>
               <li><strong>zkLogin:</strong> Seamless logins via web credentials, abstracting wallet management.</li>
+              <li><strong>Easy of Storage and Encryption</strong>Tusky on Walrus storage fees and end-to-end encryption.</li>
               <li><strong>Stablecoin Conversion:</strong> Automatic conversion to USDC/USDT via Sui smart contracts.</li>
               <li><strong>Hold/Sell:</strong> Participants choose to hold Silicon or sell seamlessly via Sui smart contracts.</li>
             </ul>
