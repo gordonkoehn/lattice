@@ -78,6 +78,9 @@ export default function App() {
           <Link
             to="/"
             style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
               fontSize: "1.3rem",
               fontWeight: 800,
               letterSpacing: "-1px",
@@ -85,6 +88,7 @@ export default function App() {
               textDecoration: "none",
             }}
           >
+            <img src="/lattic.png" alt="Lattice Logo" style={{ height: 32, width: 32, objectFit: "contain" }} />
             Lattice
           </Link>
           <div style={{ flex: 1 }} />
