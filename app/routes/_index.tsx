@@ -2,6 +2,7 @@ import type { MetaFunction } from "@vercel/remix";
 import React from "react";
 import { Link } from "@remix-run/react"; // Import Link
 import LatticeBackground from "../components/LatticeBackground"; // Import the background component
+import '/home/jonas-petersen/dev/lattice/app/tailwind.css'; 
 
 export const meta: MetaFunction = () => {
   return [
@@ -110,6 +111,16 @@ export default function Index() {
             lineHeight: 1.5,
           }}>We build the infrastructure of the robotic sharing economy.</h3>
         </header>
+
+        <div className="p-6 m-6 font-bold bg-orangePrimary text-grayMetallic rounded-lg shadow">
+          If you see this, Tailwind is working. Or not? Maybe not.
+        </div>
+
+        <h1 className="text-3xl font-bold underline">
+          Hello world!
+        </h1>
+
+        <div className="bg-orangePrimary text-white p-4">Test Custom Color</div>
 
         {/* InfoTile Section */}
         <section style={{

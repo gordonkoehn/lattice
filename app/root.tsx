@@ -8,15 +8,19 @@ import {
 } from "@remix-run/react";
 import { Analytics } from "@vercel/analytics/react";
 import type { MetaFunction } from "@vercel/remix";
-import React, { useState } from 'react';
+
+import type { LinksFunction } from "@remix-run/node";
+import stylesheet from "~/tailwind.css?url";
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
+];
 
 export const meta: MetaFunction = () => [
-  { title: "Lattice" }
+  { title: "Lattice" },
 ];
 
 export default function App() {
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
-
   return (
     <html lang="en">
       <head>
@@ -25,7 +29,8 @@ export default function App() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-        {/* Favicons for different platforms */}
+        
+        {/* Favicons */}
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
@@ -33,145 +38,68 @@ export default function App() {
         <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
         <link rel="icon" type="image/png" sizes="192x192" href="/favicon_io/android-chrome-192x192.png" />
         <link rel="icon" type="image/png" sizes="512x512" href="/favicon_io/android-chrome-512x512.png" />
+
         <Meta />
         <Links />
-        <style>{`body { font-family: 'Inter', sans-serif; margin: 0; background: #fff; } html { scroll-behavior: smooth; }`}</style>
+
+        {/* Minimal custom styling */}
+        <style>{`body { font-family: 'Inter', sans-serif; background: #fff; } html { scroll-behavior: smooth; }`}</style>
       </head>
-      <body>
-        <nav
-          style={{
-            display: "flex",
-            gap: "2rem",
-            padding: "1.5rem 2rem",
-            fontWeight: 600,
-            background: "rgba(255,255,255,0.95)",
-            boxShadow: "0 2px 12px #0001",
-            alignItems: "center",
-            position: "sticky",
-            top: 0,
-            zIndex: 1000,
-          }}
-        >
-          <Link
-            to="/"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              fontSize: "1.3rem",
-              fontWeight: 800,
-              letterSpacing: "-1px",
-              color: "#222",
-              textDecoration: "none",
-            }}
-          >
-            <img src="/lattic.png" alt="Lattice Logo" style={{ height: 32, width: 32, objectFit: "contain" }} />
-            Lattice
-          </Link>
-          <div style={{ flex: 1 }} />
-          <Link
-            to="/contribute"
-            style={{
-              color: "#444",
-              textDecoration: "none",
-              padding: "0.25rem 0.5rem",
-              borderRadius: 6,
-              transition: "background 0.2s",
-            }}
-          >
-            Contribute
-          </Link>
-          <Link
-            to="/curate"
-            style={{
-              color: "#444",
-              textDecoration: "none",
-              padding: "0.25rem 0.5rem",
-              borderRadius: 6,
-              transition: "background 0.2s",
-            }}
-          >
-            Curate
-          </Link>
-          <Link
-            to="/consume"
-            style={{
-              color: "#444",
-              textDecoration: "none",
-              padding: "0.25rem 0.5rem",
-              borderRadius: 6,
-              transition: "background 0.2s",
-            }}
-          >
-            Consume
-          </Link>
-          <div style={{ position: 'relative' }}>
-            <button
-              onClick={() => setIsAboutOpen(!isAboutOpen)}
-              onBlur={() => setTimeout(() => setIsAboutOpen(false), 150)}
-              style={{
-                color: "#444",
-                background: 'none',
-                border: 'none',
-                padding: "0.25rem 0.5rem",
-                borderRadius: 6,
-                cursor: 'pointer',
-                fontWeight: 600,
-                fontFamily: 'inherit',
-                fontSize: 'inherit',
-              }}
-            >
-              About ▾
-            </button>
-            {isAboutOpen && (
-              <div style={{
-                position: 'absolute',
-                top: '100%',
-                right: 0,
-                background: 'white',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                borderRadius: 6,
-                padding: '0.5rem',
-                marginTop: '0.5rem',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.5rem',
-                minWidth: '120px',
-                zIndex: 1001,
-              }}>
-                <Link
-                  to="/mission"
-                  style={{
-                    color: "#444",
-                    textDecoration: "none",
-                    padding: "0.25rem 0.5rem",
-                    borderRadius: 4,
-                    display: 'block',
-                  }}
-                  onClick={() => setIsAboutOpen(false)}
-                >
-                  Mission
-                </Link>
-                <Link
-                  to="/architecture"
-                  style={{
-                    color: "#444",
-                    textDecoration: "none",
-                    padding: "0.25rem 0.5rem",
-                    borderRadius: 4,
-                    display: 'block',
-                  }}
-                  onClick={() => setIsAboutOpen(false)}
-                >
-                  Architecture
-                </Link>
-              </div>
-            )}
+
+      <body className="bg-icyWhite min-h-screen">
+        <nav className="sticky top-0 z-50 w-full bg-white bg-opacity-90 backdrop-blur-md border-b border-gray-200">
+          <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+            {/* Logo + Brand */}
+            <Link to="/" className="flex items-center gap-2 text-lg font-bold tracking-tight text-gray-800 hover:text-black">
+              <img src="/lattic.png" alt="Lattice Logo" className="h-7 w-7 object-contain" />
+              Lattice
+            </Link>
+
+            {/* Nav Links + CTA */}
+            <div className="flex items-center gap-6 text-sm font-medium">
+              <ul className="flex gap-6">
+                <li>
+                  <Link to="/" className="text-gray-700 hover:text-black px-2 py-1 rounded transition hover:bg-gray-100 hover:shadow-sm">
+                    README
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/vision" className="text-gray-700 hover:text-black px-2 py-1 rounded transition hover:bg-gray-100 hover:shadow-sm">
+                    Vision
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/how-it-works" className="text-gray-700 hover:text-black px-2 py-1 rounded transition hover:bg-gray-100 hover:shadow-sm">
+                    How It Works
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/for-builders" className="text-gray-700 hover:text-black px-2 py-1 rounded transition hover:bg-gray-100 hover:shadow-sm">
+                    For Builders
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="text-gray-700 hover:text-black px-2 py-1 rounded transition hover:bg-gray-100 hover:shadow-sm">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+
+              {/* CTA */}
+              <Link
+                to="/contact"
+                className="ml-4 bg-black text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-900 transition shadow-sm"
+              >
+                Join Lattice
+              </Link>
+            </div>
           </div>
         </nav>
-        <div style={{ minHeight: "calc(100vh - 80px)" }}>
+
+        <div className="min-h-screen">
           <Outlet />
         </div>
+
         <ScrollRestoration />
         <Scripts />
         <Analytics />
