@@ -110,6 +110,10 @@ export default function Index() {
             lineHeight: 1.5,
           }}>We build the infrastructure of the robotic sharing economy.</h3>
         </header>
+        
+        <div className="p-6 m-6 bg-green-100 text-green-800 rounded-lg shadow">
+          Tailwind is working!
+        </div>
 
         {/* InfoTile Section */}
         <section style={{

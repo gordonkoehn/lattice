@@ -9,6 +9,7 @@ import {
 import { Analytics } from "@vercel/analytics/react";
 import type { MetaFunction } from "@vercel/remix";
 import React, { useState } from 'react';
+import './tailwind.css';
 
 export const meta: MetaFunction = () => [
   { title: "Lattice" }
