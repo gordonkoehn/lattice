@@ -36,6 +36,7 @@ export default function App() {
         <Meta />
         <Links />
         <style>{`body { font-family: 'Inter', sans-serif; margin: 0; background: #fff; } html { scroll-behavior: smooth; }`}</style>
+        
       </head>
       <body>
         <nav
